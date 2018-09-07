@@ -1,6 +1,6 @@
-# coding_challenge_etl
+# Coding challenge ETL
 
-Requirements:
+#####Requirements:
 * Python3.x
 * Postgres DB
 * JSON-based document-oriented storage solution of your choice (MongoDB)
@@ -15,7 +15,7 @@ Completed challenges should be compressed in a zip file and sent to us by mail. 
 
 Please do not post your completed challenge on a public repository - that wouldn't be a nice thing to do.
 
-Expected behavior:
+##### Expected behavior:
 * The server will receive the connection details to a Postgres DB (host, credentials, database, table etc.) in an HTTP request.
 * The server will check whether it can read the data in the table using the provided connection details.
 * The server will then proceed to convert each entry in the table to JSON format and store each entry is in a document-oriented storage. 
@@ -24,11 +24,13 @@ Expected behavior:
 A non-200 response will be returned if the connection details provided do not allow the server to read data from the table or JSON conversion could not start for some reason.
 The identifier for each entry in the document-oriented storage should be identical to the table's primary key.
 The table's structure is unknown. You may assume that it will contain only basic types (int, float, char and boolean).
-Expected practices:
+
+#### Expected practices:
 Your code should be production-ready and we want to know what you consider to be production-ready. Feel free to cut corners, but be ready to explain them.
 Assume your code will be maintained by other developers. Assume those other developers are armed and know where you live.
 Please provide documentation for local deployment and server usage. Automated deployment is a nice bonus.
 We will be testing your solution on several table formats - so should you.
+
 Notes:
 * We know you may not have worked with all the libraries, paradigms and solutions you will need to complete this test. That's OK, we want to see how you learn new stuff - it is an integral part of our day-to-day.
 * You can ask for more time. You can cut corners. You can write bad code. You can do everything - but be ready to defend your choices.
