@@ -1,35 +1,19 @@
-import os
-from flask import Flask, redirect, url_for, request, render_template
-from pymongo import MongoClient
+from flask import Flask
+from flask_restful import Api, Resource
 
 app = Flask(__name__)
-
-client = MongoClient(
-    os.environ['DB_PORT_27017_TCP_ADDR'],
-    27017)
-db = client.tododb
+api = Api(app)
 
 
-@app.route('/')
-def todo():
+class UserAPI(Resource):
+    def get(self, id):
+        pass
 
-    _items = db.tododb.find()
-    items = [item for item in _items]
+    def put(self, id):
+        pass
 
-    return render_template('todo.html', items=items)
-
-
-@app.route('/new', methods=['POST'])
-def new():
-
-    item_doc = {
-        'name': request.form['name'],
-        'description': request.form['description']
-    }
-    db.tododb.insert_one(item_doc)
-
-    return redirect(url_for('todo'))
+    def delete(self, id):
+        pass
 
 
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', debug=True)
+api.add_resource(UserAPI, '/users/<int:id>', endpoint = 'user')
